@@ -1,0 +1,204 @@
+/*
+Theme Name: Fitvia
+Theme URI: https://github.com/nourhb/fitvia-fitness-theme
+Author: Nour El Houda Bouajila
+Author URI: https://nour-hb.vercel.app/
+Description: Fitvia is a high-energy Full Site Editing theme built for gyms, fitness studios and personal trainers. Near-black canvas with electric volt-green accents, a trial-offer hero, trust badges, class grid, certified trainers, weekly schedule table, membership pricing, animated stats, transformations, FAQ, about story, photo gallery and a free-trial CTA — everything a fitness brand needs to fill classes and sell memberships.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.9
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: fitvia
+Tags: full-site-editing, block-patterns, block-styles, custom-colors, custom-logo, featured-images, threaded-comments, translation-ready, wide-blocks, editor-style
+*/
+
+/* ---------- Base polish ---------- */
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Skip link visibility */
+.skip-link:focus {
+	z-index: 99999;
+}
+
+/* ---------- Class / trainer cards ---------- */
+
+.fitvia-card {
+	transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.fitvia-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 24px 48px -16px rgba(0, 0, 0, .55);
+}
+
+.fitvia-card img {
+	transition: transform .6s ease;
+}
+
+.fitvia-card:hover img {
+	transform: scale(1.05);
+}
+
+/* Status badges */
+.fitvia-badge {
+	display: inline-block;
+	padding: .35rem .9rem;
+	border-radius: 999px;
+	font-size: .72rem;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+}
+
+.fitvia-badge--volt { background: #d4ff3f; color: #0d0d0f; }
+.fitvia-badge--dark { background: #0d0d0f; color: #d4ff3f; }
+.fitvia-badge--outline { background: transparent; color: #d4ff3f; border: 1px solid #d4ff3f; }
+
+/* ---------- Buttons ---------- */
+
+.wp-block-button__link {
+	transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+.wp-block-button__link:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px -8px rgba(212, 255, 63, .45);
+}
+
+/* ---------- Trial strip pulse ---------- */
+
+.fitvia-pulse {
+	position: relative;
+}
+
+.fitvia-pulse::before {
+	content: "";
+	position: absolute;
+	inset: -4px;
+	border-radius: inherit;
+	border: 2px solid rgba(212, 255, 63, .55);
+	animation: fitvia-ping 2.2s ease-out infinite;
+	pointer-events: none;
+}
+
+@keyframes fitvia-ping {
+	0% { transform: scale(.98); opacity: .9; }
+	70% { transform: scale(1.04); opacity: 0; }
+	100% { transform: scale(1.04); opacity: 0; }
+}
+
+/* ---------- Scroll reveal ---------- */
+
+.fitvia-reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity .7s ease, transform .7s ease;
+}
+
+.fitvia-reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* ---------- Back to top ---------- */
+
+.fitvia-to-top {
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	width: 3rem;
+	height: 3rem;
+	border: 0;
+	border-radius: 50%;
+	background: #d4ff3f;
+	color: #0d0d0f;
+	font-size: 1.25rem;
+	line-height: 1;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(12px);
+	transition: opacity .3s ease, transform .3s ease, visibility .3s;
+	z-index: 999;
+}
+
+.fitvia-to-top.is-visible {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+}
+
+.fitvia-to-top:hover {
+	background: #0d0d0f;
+	color: #d4ff3f;
+}
+
+/* ---------- Schedule table ---------- */
+
+.fitvia-schedule {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.fitvia-schedule th {
+	background: #0d0d0f;
+	color: #d4ff3f;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	font-size: .78rem;
+}
+
+.fitvia-schedule th,
+.fitvia-schedule td {
+	padding: .9rem 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, .08);
+	text-align: left;
+}
+
+.fitvia-schedule tbody tr:hover {
+	background: rgba(212, 255, 63, .06);
+}
+
+/* ---------- Focus states ---------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+	outline: 3px solid #d4ff3f;
+	outline-offset: 3px;
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+	.fitvia-to-top,
+	.site-header,
+	.site-footer {
+		display: none;
+	}
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	.fitvia-pulse::before { animation: none; }
+	.fitvia-reveal { opacity: 1; transform: none; transition: none; }
+	.fitvia-card, .fitvia-card img, .wp-block-button__link { transition: none; }
+	.fitvia-card:hover { transform: none; }
+}
