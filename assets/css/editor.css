@@ -1,0 +1,62 @@
+/* Fitvia editor styles — keeps the block editor close to the front end. */
+
+.editor-styles-wrapper {
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	line-height: 1.7;
+	color: #26262b;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3 {
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-weight: 800;
+	letter-spacing: -0.015em;
+	line-height: 1.2;
+}
+
+.fitvia-badge {
+	display: inline-block;
+	padding: .35rem .9rem;
+	border-radius: 999px;
+	font-size: .72rem;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+}
+
+.fitvia-badge--volt { background: #d4ff3f; color: #0d0d0f; }
+.fitvia-badge--dark { background: #0d0d0f; color: #d4ff3f; }
+.fitvia-badge--outline { background: transparent; color: #5c7a00; border: 1px solid #d4ff3f; }
+
+.is-style-volt-outline .wp-block-button__link {
+	background: transparent;
+	color: #5c7a00;
+	border: 2px solid #d4ff3f;
+}
+
+.is-style-class-card {
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.is-style-soft-frame img {
+	border-radius: 12px;
+	box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .45);
+}
+
+.is-style-volt-rule {
+	position: relative;
+	padding-bottom: .75rem;
+}
+
+.is-style-volt-rule::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 64px;
+	height: 3px;
+	background: #d4ff3f;
+	border-radius: 2px;
+}
